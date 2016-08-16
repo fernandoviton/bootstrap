@@ -1,7 +1,15 @@
 # Dev Machine Powershell setup - Requires Admin prompt
+if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator"))
+{
+	$arguments = "& '" + $myinvocation.mycommand.definition + "'"
+	Start-Process powershell -Verb runAs -ArgumentList $arguments
+	Break
+}
 
 # Chocolatey install
-iex ((new-object net.webclient).DownloadString('http://bit.ly/psChocInstall'))
+if (!(gcm cinst -ErrorAction SilentlyContinue)){
+	iex ((new-object net.webclient).DownloadString('http://bit.ly/psChocInstall'))
+}
 
 # install applications
 cinst slack -y
