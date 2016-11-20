@@ -7,3 +7,6 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# pipsi (though maybe useful by others)
+export PATH=$PATH:/Users/fer/.local/bin
