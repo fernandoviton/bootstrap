@@ -15,4 +15,4 @@ run "pip install virtualenv"
 run "npm install -g elm"
 
 # electron
-run "npm install -g electron"
+run "npm install -g electron electron-packager"
