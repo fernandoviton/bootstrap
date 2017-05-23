@@ -16,9 +16,8 @@ cinst slack -y
 cinst google-chrome-x64 -y
 cinst notepadplusplus -y
 cinst notepad2 -y
-# cinst git -y
-# cinst github -y # failing due to md5 sum mismatch
-#TODO: setup consolez
+ cinst git -y
+ cinst github -y
 
 # Setup Powershell symlinks
 cmd /c mklink /D  "$env:USERPROFILE\Documents\WindowsPowerShell\" "$PSScriptRoot"
