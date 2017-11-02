@@ -21,19 +21,6 @@ $lib_home = "$PSScriptRoot\scripts"
 Get-ChildItem $lib_home\*.ps1 | ForEach-Object {. (Join-Path $lib_home $_.Name)} | Out-Null
 
 ##-------------------------------------------
-## Load Git
-##-------------------------------------------
-if (Test-Path "$env:LOCALAPPDATA\GitHub\shell.ps1")
-{
-	. (Resolve-Path "$env:LOCALAPPDATA\GitHub\shell.ps1")
-	. $env:github_posh_git\profile.example.ps1
-
-	# Shell.ps1 overwrites TMP and TEMP with a version with a trailing '\' 
-	$env:TMP = $env:TEMP = [system.io.path]::gettemppath().TrimEnd('\') 
-}
-else { Write-Warning "Git Shell not present" }
-
-##-------------------------------------------
 ## Key Remaps
 ##-------------------------------------------
 # flip Up/Down and F8/Shift+F8
@@ -41,3 +28,10 @@ Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadlineKeyHandler -Key F8 -Function PreviousHistory
 Set-PSReadlineKeyHandler -Key Shift+F8 -Function NextHistory
+
+##-------------------------------------------
+## Notes
+##-------------------------------------------
+# Poshgit is done using https://github.com/dahlbyk/posh-git which can be obtained via choco install.
+# It should modify your profile if your powershell profile but if it doesn't (or if you install it before you have one) add something like this:
+# Import-Module 'C:\tools\poshgit\dahlbyk-posh-git-a4faccd\src\posh-git.psd1'
