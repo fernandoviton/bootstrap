@@ -20,5 +20,7 @@ cinst git -y
 cinst github -y
 cinst poshgit -y
 
+// TODO: node and consider: npm install tslint -g typescript
+
 # Setup Powershell symlinks
 cmd /c mklink /D  "$env:USERPROFILE\Documents\WindowsPowerShell\" "$PSScriptRoot"
