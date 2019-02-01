@@ -7,20 +7,19 @@ if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 }
 
 # Chocolatey install
-if (!(gcm cinst -ErrorAction SilentlyContinue)){
-	iex ((new-object net.webclient).DownloadString('http://bit.ly/psChocInstall'))
+if (!(gcm choco install  -ErrorAction SilentlyContinue)){
+	iex ((new-object net.webclient).DownloadString('http://bit.ly/psChochoco install all'))
 }
 
 # install applications
-cinst slack -y
-cinst google-chrome-x64 -y
-cinst notepadplusplus -y
-cinst notepad2 -y
-cinst git -y
-cinst github -y
-cinst poshgit -y
-
-// TODO: node and consider: npm install tslint -g typescript
+choco install vscode -y
+choco install slack -y
+choco install google-chrome-x64 -y
+choco install notepadplusplus -y
+choco install notepad2 -y
+choco install github -y
+choco install poshgit -y
+choco install nodejs -y
 
 # Setup Powershell symlinks
 # Don't do this since poshgit will modify the powershell so not sure this is a good way to go
