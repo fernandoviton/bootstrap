@@ -14,7 +14,7 @@ if (!(gcm choco install  -ErrorAction SilentlyContinue)){
 # install applications
 choco install vscode -y
 choco install slack -y
-choco install google-chrome-x64 -y
+choco install firefox -y
 choco install notepadplusplus -y
 choco install notepad2 -y
 choco install github -y
