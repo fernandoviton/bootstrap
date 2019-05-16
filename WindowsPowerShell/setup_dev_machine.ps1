@@ -8,7 +8,7 @@ if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 
 # Chocolatey install
 if (!(gcm choco install  -ErrorAction SilentlyContinue)){
-	iex ((new-object net.webclient).DownloadString('http://bit.ly/psChochoco install all'))
+	iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 }
 
 # install applications
